@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
@@ -9,62 +8,9 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>vue-class</title>
-</head>
+  </head>
 
-<body>
-    <div id="app">
-        <input type="button" value="get" @click="get1">
-        <input type="button" value="get" @click="get2">
-        <ul>
-            <li v-for="(item,index) in jokes">
-                {{ item }}
-            </li>
-        </ul>
-        <br>
-        <input type="button" value="post" @click="post1">
-    </div>
-</body>
-
+  <body>
+    <div id="app"></div>
+  </body>
 </html>
-
-<script>
-    var app = new Vue({
-        el: "#app",
-        data: {
-            jokes: []
-        },
-        methods: {
-            get1: function () {
-                axios.get("https://autumnfish.cn/api/joke/list?num=3")
-                    .then((response) => {
-                        console.log(response.data);
-                        console.log(this.jokes);
-                        this.jokes = this.jokes.concat(response.data.jokes);
-                    }, (error) => {
-                        console.log(error);
-                    });
-            },
-            get2: function () {
-                var that = this;
-                axios.get("https://autumnfish.cn/api/joke/list?num=6")
-                    .then(function (response) {
-                        console.log(response.data);
-                        console.log(that.jokes);
-                        that.jokes = that.jokes.concat(response.data.jokes);
-                    }, (error) => {
-                        console.log(error);
-                    });
-            },
-            post1: function () {
-                axios.post("https://autumnfish.cn/api/user/reg", {
-                    username: "zk"
-                }).
-                then((response) => {
-                    alert(response.data);
-                }, (error) => {
-                    console.log(error);
-                });
-            }
-        }
-    });
-</script>
