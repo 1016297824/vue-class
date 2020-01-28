@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>class</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="button" value="doIT1" v-on:click="doIT1" />
+      <input type="button" value="doIT1" @click="doIT1" />
+      <br />
+      <input type="button" value="doIT2" @dblclick="doIT2" />
+      <br />
+      <input type="button" value="showzk" @click="showzk" @dblclick="doIT2" />
+      <p v-text="zk"></p>
+    </div>
+  </body>
+</html>
+
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      zk: ""
+    },
+    methods: {
+      doIT1: function() {
+        alert("doIT1");
+      },
+      doIT2: function() {
+        alert("doIT2");
+      },
+      showzk: function() {
+        if (this.zk == "") {
+          this.zk += "my name is zk";
+        } else {
+          this.zk = "";
+        }
+      }
+    }
+  });
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>class</title>
+  </head>
+  <body>
+    <div id="app">
+      <button v-show="btem" @click="show">show</button>
+      <img src="./img/huan.jpg" alt="" v-show="temp" @click="bshow" />
+    </div>
+  </body>
+</html>
+
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      temp: false,
+      btem: true
+    },
+    methods: {
+      show: function() {
+        this.temp = true;
+        this.btem = false;
+      },
+      bshow: function() {
+        this.temp = false;
+        this.btem = true;
+      }
+    }
+  });
+</script>

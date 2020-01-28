@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <title>class</title>
+</head>
+
+<body>
+  <div id="app">
+    <img v-bind:src="imgSrc" alt="heima">
+    <br>
+    <img :src="imgSrc" alt="heima" :title="imgTitle+'!!!'" :class="isActive?'active':' '" @click="doActive">
+    <br>
+    <img :src="imgSrc" alt="heima" :title="imgTitle+'!!!'" :class="{active:isActive}" @click="doActive">
+  </div>
+</body>
+
+</html>
+
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      imgSrc: "http://www.itheima.com/images/logo.png",
+      imgTitle: "ZK",
+      isActive: false
+    },
+    methods: {
+      doActive: function () {
+        this.isActive = !this.isActive;
+      }
+    }
+  });
+</script>
+
+<style>
+  .active {
+    border: 1px solid red;
+  }
+</style>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>class</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>
+        {{ message }}
+      </h1>
+      <h2>
+        {{ school }}
+      </h2>
+      <h3>
+        {{ school.name }}
+      </h3>
+      <h4>
+        {{ school.mobile }}
+      </h4>
+      <h5>
+        {{ location[1] }}
+      </h5>
+      <ul>
+        <li>{{location[0]}}</li>
+        <li>{{location[1]}}</li>
+        <li>{{location[2]}}</li>
+      </ul>
+    </div>
+  </body>
+</html>
+
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      message: "zk",
+      school: {
+        name: "nefu",
+        mobile: "4008-123-123"
+      },
+      location: ["北京", "天津", "上海"]
+    }
+  });
+</script>
