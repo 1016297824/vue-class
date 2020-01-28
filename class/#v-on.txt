@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>vue-class</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="click" @click="doIT(666,'zk')">
+        <br>
+        <input type="text" @keyup="say">
+        <br>
+        <input type="text" @keyup.enter="say" v-model="message">
+    </div>
+</body>
+
+</html>
+
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            message: "zk"
+        },
+        methods: {
+            doIT: function (p1, p2) {
+                console.log("doIT!");
+                console.log(p1);
+                console.log(p2);
+            },
+            say: function () {
+                alert("hello!");
+            }
+        }
+    });
+</script>

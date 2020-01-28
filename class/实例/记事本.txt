@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>vue-class</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="text1" @keyup.enter="add">
+        <br>
+        <ul>
+            <li v-for="(item,index) in eventMessage">
+                {{ index + 1 }}.{{ item }}
+                <input type="button" value="delete" @click="del(index)">
+            </li>
+        </ul>
+        <p v-if="eventMessage.length != 0">
+            {{ eventMessage.length }}
+            <input type="button" value="clear" @click="delAll">
+        </p>
+    </div>
+</body>
+
+</html>
+
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            text1: "",
+            eventMessage: ["吃饭", "打豆", "睡觉觉"]
+        },
+        methods: {
+            add: function () {
+                if (this.test1 != "") {
+                    this.eventMessage.push(this.text1);
+                }
+            },
+            del: function (index) {
+                this.eventMessage.splice(index, 1);
+            },
+            delAll: function () {
+                this.eventMessage = [];
+            }
+        }
+    });
+</script>

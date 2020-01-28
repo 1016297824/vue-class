@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>vue-class</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="message">
+        <input type="button" value="change" @click="change">
+        <br>
+        <input type="text" @keyup.enter="say" v-model="message">
+    </div>
+</body>
+
+</html>
+
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            message: "zk"
+        },
+        methods: {
+            change: function () {
+                this.message = "zk";
+            },
+            say: function () {
+                alert("hello " + this.message + "!");
+            }
+        }
+    });
+</script>

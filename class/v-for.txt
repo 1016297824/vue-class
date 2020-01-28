@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>vue-class</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1 v-for="(item,index) in vegetables" :title="item.name">
+            {{ item.name}}{{ index + 1 }}
+        </h1>
+        <input type="button" name="" id="" value="add" @click="add">
+        <input type="button" name="" id="" value="delete" @click="del">
+        <ul>
+            <li v-for="item in arr">
+                黑马程序员校区：{{ item }}
+            </li>
+        </ul>
+        <ul>
+            <li v-for="(item,index) in arr">
+                {{ index + 1 }}.黑马程序员校区：{{ item }}
+            </li>
+        </ul>
+    </div>
+</body>
+
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            arr: ["北京", "上海", "广州", "深圳"],
+            vegetables: [{
+                    name: "zk"
+                },
+                {
+                    name: "zk"
+                }
+            ]
+        },
+        methods: {
+            add: function () {
+                this.vegetables.push({
+                    name: "zk"
+                });
+            },
+            del: function () {
+                this.vegetables.shift();
+            }
+        }
+    });
+</script>
+
+</html>
+
+<style>
+    .active {
+        border: 1px solid red;
+    }
+</style>
